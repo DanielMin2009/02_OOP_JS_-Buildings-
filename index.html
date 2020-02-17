@@ -1,0 +1,186 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <title>JS Objects</title>
+    <meta charset="utf-8" />
+    <link href="css/style.css" rel="stylesheet" />
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css"
+        integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+
+</head>
+
+<body>
+    <div id="container">
+        <h1>OOP JavaScript 02 | Bank</h1>
+
+
+        <div id="answer01">
+        </div>
+        <div id="answer02" class="dnone">
+            <h2>Account Holder</h2>
+            <h2>Account Number</h2>
+        </div>
+
+        <div id="showBalance" class="dnone">
+            <h2>Account Holder</h2>
+            <h2>Account Number</h2>
+            <h2 id="amount">Balance</h2>
+        </div>
+
+        <div id="showMovements" class="dnone">
+            <h2>Account Holder</h2>
+            <h2>Account Number</h2>
+            <h2 id="amount">Balance</h2>
+            <h2 id="movements">Transactions</h2>
+        </div>
+
+
+
+        <div id="answer03"></div>
+        <div id="answerShowBalance"></div>
+        <div id="answerShowMovements"></div>
+        <div id="answer04"></div>
+        <div id="answer05"></div>
+        <div id="answer06"></div>
+
+        <div class="gridTables">
+
+            <button class="btn" id="btn-modalAdd">Add Account Holder <i class="fas fa-user-plus"></i></button>
+            <button class="btn" id="btn-modalMod">Create Account <i class="fas fa-plus"></i></button>
+            <button class="btn" id="btn-modalSee">Take Out or Deposit <i class="fas fa-coins"></i></button>
+            <button class="btn" id="btn-modalDelete">Check Balance <i class="fas fa-chart-line"></i></button>
+
+        </div>
+
+
+
+        <div class="overlay" id="overlayAdd"></div>
+        <div class="modal" id="modalAdd">
+
+            <button class="modal-close-btn" id="close-btnAdd">
+                <a class="close-button">Close</a>
+            </button>
+            <!-- add Holder Form -->
+            <form name="addHolderForm">
+                <h3>Add Holder Account</h3>
+                <div class="row">
+                    <label>Name</label><br>
+                    <input type="text" name="txtName" id="txtName">
+                </div>
+                <div class="row">
+                    <label>Surname</label><br>
+                    <input type="text" name="txtSurname" id="txtSurname">
+                </div>
+                <div class="row">
+                    <button onclick="addHolder()" type="button" id="btnAddHotelFunction">Add Holder Account <i
+                            class="fas fa-plus"></i></button>
+                </div>
+            </form>
+        </div>
+        <!--End of Add Overlay-->
+
+        <div class="overlay" id="overlayMod"></div>
+        <div class="modal" id="modalMod">
+
+            <button class="modal-close-btn" id="close-btnMod">
+                <a class="close-button">Close</a>
+            </button>
+            <!-- create Account Form -->
+            <form name="createAccountForm">
+                <h3>Create Account</h3>
+                <div class="row">
+                    <label>Holder Account Name & Surname</label><br>
+                    <input type="text" name="txtHolderName" id="txtHolderName">
+                </div>
+                <div class="row">
+                    <label>Account Number</label><br>
+                    <input type="text" name="txtAccount" id="txtAccount">
+                </div>
+
+                <div class="row">
+                    <button onclick="createAccount()" type="button" id="btnModHotelFunction">Create Account <i
+                            class="fas fa-plus"></i></button>
+                </div>
+            </form>
+        </div>
+        <!--End of Modify Overlay-->
+
+        <div class="overlay" id="overlaySee"></div>
+        <div class="modal" id="modalSee">
+
+            <button class="modal-close-btn" id="close-btnSee">
+                <a class="close-button">Close</a>
+            </button>
+            <!-- See Hotel Form -->
+            <form name="moveMoneyForm">
+                <h3>Take out or Deposit Money</h3>
+                <div class="row">
+                    <label>Holder Account Name & Surname</label><br>
+                    <input type="text" name="txtNameMove" id="txtNameMove">
+                </div>
+                <div class="row">
+                    <label>Account Number</label><br>
+                    <input type="text" name="txtAccountMov" id="txtAccountMov">
+                </div>
+                <div class="row">
+                    <label>Amount €</label><br>
+                    <input type="number" name="txtAmount" id="txtAmount">
+                </div>
+                <div id="yourBalanceModDiv" class="row dnone">
+                    <label class="dnone">Your Balance</label><br>
+                    <span id="yourBalanceMod"></span>
+                </div>
+                <div class="row flexTwoButtons">
+                    <button onclick="depositClick()" type="button" id="btnDepositFunction">Deposit Money <i
+                            class="fas fa-arrow-up"></i></button>
+                    <button onclick="takeOutClick()" type="button" id="btnTakeOutFunction">Take Out Money <i
+                            class="fas fa-arrow-down"></i></button>
+                </div>
+            </form>
+        </div>
+        <!--End of Modify Overlay-->
+
+
+        <div class="overlay" id="overlayDelete"></div>
+        <div class="modal" id="modalDelete">
+
+            <button class="modal-close-btn" id="close-btnDelete">
+                <a class="close-button">Close</a>
+            </button>
+            <!-- See Hotel Form -->
+            <form name="balanceCheckForm">
+
+                <h3>Balance Check</h3>
+                <div class="row">
+                    <label>Holder Account Name</label><br>
+                    <input type="text" name="txtNameChk" id="txtNameChk">
+                </div>
+
+                <div class="row">
+                    <label>Account Number</label><br>
+                    <input type="text" name="txtAccountChk" id="txtAccountChk">
+                </div>
+
+                <div class="row">
+                    <button onclick="checkBalance()" type="button" id="btnBalanceCheck">Check Balance <i
+                            class="fas fa-chart-line"></i></button>
+                </div>
+
+
+            </form>
+        </div>
+        <!--End of Modify Overlay-->
+
+
+
+    </div>
+
+    <script src="js/modal.js"></script>
+    <script src="js/Account.js"></script>
+    <script src="js/Holder.js"></script>
+    <script src="js/Controller.js"></script>
+
+</body>
+
+</html>
